@@ -1,4 +1,8 @@
 package IntegratedSCS -- needs documentation (TT)
 public
+  system DCS -- digital control system template
+  
+  end DCS;
+
 	
 end IntegratedSCS;
