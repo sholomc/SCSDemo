@@ -1,0 +1,36 @@
+
+
+Detailed Processor MIPS Capacity Report
+
+Component,Capacity
+processor cpu, 1.200 MIPS,
+Total, 1.200 MIPS,
+
+
+Detailed MIPS Budget Report
+
+Component,Budget,Actual,Notes
+
+
+Detailed RAM Capacity Report
+
+Component,Capacity
+memory ram, 0.000 KByte,
+Total, 0.000 KByte,
+
+
+Detailed RAM Budget Report
+
+Component,Budget,Actual,Notes
+
+
+Detailed ROM Capacity Report
+
+Component,Capacity
+memory ram, 0.000 KByte,
+Total, 0.000 KByte,
+
+
+Detailed ROM Budget Report
+
+Component,Budget,Actual,Notes
