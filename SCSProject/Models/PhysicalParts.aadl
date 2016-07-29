@@ -1,0 +1,79 @@
+package PhysicalParts
+public
+	with SEI;
+	
+		
+	abstract Power
+	end Power;
+
+	
+	
+	processor powerpc
+		features
+			power: in data port Power;
+		properties
+			SEI::PowerBudget => 0.8 w applies to power;
+			SEI::MIPSCapacity => 1.2 mips;
+	end powerpc;
+
+	bus CANbus
+		features
+			power: in data port Power;
+		properties
+			SEI::PowerBudget => 0.8 w applies to power;
+	end CANbus;
+
+	memory main_memory
+		features
+			power: in data port Power;
+		properties
+			SEI::PowerBudget => 0.8 w applies to power;
+	end main_memory;
+	
+	system platform
+		features
+			canbusaccess: provides bus access CANbus;
+			power: in data port Power;
+		properties
+			SEI::PowerBudget => 0.8 w applies to power;
+			SEI::MIPSCapacity => 2.4 mips;
+	end platform;
+	
+	system implementation platform.single
+		subcomponents
+			cpu: processor powerpc;
+			ram: memory main_memory;
+			canbus: bus CANbus;
+	end platform.single;
+
+	system implementation platform.dual
+		subcomponents
+			pc1: processor powerpc;
+			pc2: processor powerpc;
+			M: memory main_memory;
+	end platform.dual;
+	
+		device sensor
+		features
+			power: in data port Power;
+			canbusaccess: requires bus access CANbus;
+		properties
+			SEI::GrossWeight => 0.18 kg;
+			SEI::PowerBudget => 0.45 w applies to power;
+			Period => 25 ms;
+			Dispatch_Protocol => Periodic;
+	end sensor;
+	
+	device actuator
+		features
+			power: in data port Power;
+			canbusaccess: requires bus access CANbus;
+		properties
+			SEI::GrossWeight => 0.3 kg;
+			SEI::PowerBudget => 0.8 w applies to power;
+			Period => 25 ms;
+			Dispatch_Protocol => Periodic;
+	end actuator;
+	
+	
+end PhysicalParts;
